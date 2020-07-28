@@ -1,4 +1,4 @@
-# Copyright 2010-2012 Gabriele Sales <gabriele.sales@unipd.it>
+# Copyright 2010-2020 Gabriele Sales <gabriele.sales@unipd.it>
 #
 #
 # This file is part of parmigene.
@@ -24,14 +24,13 @@
      as.integer(k),
      as.double(noise),
      res = double(1),
-     PACKAGE = "parmigene",
-     DUP = TRUE)$res
+     PACKAGE = "parmigene")$res
 
 .mi_cross <- function(xs, ys, k, noise) {
   h1 <- nrow(xs)
   h2 <- nrow(ys)
   w  <- ncol(xs)
-  
+
   res <- .C("mi_cross",
             as.double(t(xs)),
             as.integer(h1),
@@ -41,8 +40,7 @@
             as.integer(k),
             as.double(noise),
             res = double(h1*h2),
-            PACKAGE = "parmigene",
-            DUP = TRUE)$res
+            PACKAGE = "parmigene")$res
 
   m <- t(matrix(res, nrow=h2))
   rownames(m) <- rownames(xs)
@@ -53,7 +51,7 @@
 .mi_all <- function(xs, k, noise) {
   h <- nrow(xs)
   w <- ncol(xs)
-  
+
   res <- .C("mi_all",
             as.double(t(xs)),
             as.integer(h),
@@ -61,8 +59,7 @@
             as.integer(k),
             as.double(noise),
             res = double(h*h),
-            PACKAGE = "parmigene",
-            DUP = TRUE)$res
+            PACKAGE = "parmigene")$res
 
   m <- matrix(res, nrow=h)
   colnames(m) <- rownames(xs)
@@ -77,8 +74,7 @@
             as.double(eps),
             as.double(eta),
             res=double(n*n),
-            PACKAGE = "parmigene",
-            DUP = FALSE)$res
+            PACKAGE = "parmigene")$res
 
   m <- matrix(res, nrow=n)
   colnames(m) <- rownames(mis)
@@ -91,8 +87,7 @@
             as.double(t(mis)),
             as.integer(n),
             res = double(n*n),
-            PACKAGE = "parmigene",
-            DUP = FALSE)$res
+            PACKAGE = "parmigene")$res
 
   m <- matrix(res, nrow=n)
   colnames(m) <- rownames(mis)
@@ -105,11 +100,12 @@
               as.double(t(mis)),
               as.integer(n),
               res = double(n*n),
-              PACKAGE = "parmigene",
-              DUP = FALSE)$res
+              PACKAGE = "parmigene")$res
 
   m <- matrix(res, nrow=n)
   colnames(m) <- rownames(mis)
   rownames(m) <- rownames(mis)
   m
 }
+
+
