@@ -1,0 +1,16 @@
+Package: parmigene
+Version: 1.0.2
+Date: 2012-07-18
+Title: Parallel Mutual Information estimation for Gene Network
+        reconstruction.
+Author: Gabriele Sales <gabriele.sales@unipd.it>, Chiara Romualdi
+        <chiara.romualdi@unipd.it>
+Maintainer: Gabriele Sales <gabriele.sales@unipd.it>
+Description: The package provides a parallel estimation of the mutual
+        information based on entropy estimates from k-nearest neighbors
+        distances and algorithms for the reconstruction of gene
+        regulatory networks.
+License: AGPL-3
+Packaged: 2012-07-21 07:31:37 UTC; ripley
+Repository: CRAN
+Date/Publication: 2012-07-23 19:57:03
