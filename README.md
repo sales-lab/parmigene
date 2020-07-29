@@ -1,4 +1,6 @@
 # parmigene
+ 
+![Build status](https://github.com/sales-lab/parmigene/workflows/r_check/badge.svg)
 
 This R package provides a parallel estimation of the mutual information based on entropy estimates from k-nearest neighbors distances and algorithms for the reconstruction of gene regulatory networks.
 
