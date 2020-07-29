@@ -1,4 +1,4 @@
-# Copyright 2010-2011 Gabriele Sales <gabriele.sales@unipd.it>
+# Copyright 2010-2020 Gabriele Sales <gabriele.sales@unipd.it>
 #
 #
 # This file is part of parmigene.
@@ -16,7 +16,7 @@
 # License along with parmigene. If not, see <http://www.gnu.org/licenses/>.
 
 
-.check.matrix <- function(x, k, name) {
+check.matrix <- function(x, k, name) {
   if ((!is.matrix(x) && !is.data.frame(x)) || nrow(x) < 2) {
     stop(paste(name, "must be a multi-row matrix or a data.frame"))
   } else if (ncol(x) <= k) {
@@ -37,12 +37,12 @@ knnmi <- function(x, y, k=3, noise=1e-12) {
     stop("k must be >= 2.")
   }
 
-  .mi_single(x, y, k, noise)
+  mi_single(x, y, k, noise)
 }
 
 knnmi.cross <- function(mat1, mat2, k=3, noise=1e-12) {
-  .check.matrix(mat1, k, "mat1")
-  .check.matrix(mat2, k, "mat2")
+  check.matrix(mat1, k, "mat1")
+  check.matrix(mat2, k, "mat2")
 
   if (ncol(mat1) != ncol(mat2)) {
     stop("mat1 and mat2 must have the same number of columns.")
@@ -50,14 +50,14 @@ knnmi.cross <- function(mat1, mat2, k=3, noise=1e-12) {
     stop("k must be >= 2.")
   }
 
-  .mi_cross(mat1, mat2, k, noise)
+  mi_cross(mat1, mat2, k, noise)
 }
 
 knnmi.all <- function(mat, k=3, noise=1e-12) {
-  .check.matrix(mat, k, "xs")
+  check.matrix(mat, k, "xs")
 
   if (k < 2)
     stop("k must be >= 2.")
 
-  .mi_all(mat, k, noise)
+  mi_all(mat, k, noise)
 }

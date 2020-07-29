@@ -1,4 +1,4 @@
-# Copyright 2010-2011 Gabriele Sales <gabriele.sales@unipd.it>
+# Copyright 2010-2020 Gabriele Sales <gabriele.sales@unipd.it>
 #
 #
 # This file is part of parmigene.
@@ -15,5 +15,5 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with parmigene. If not, see <http://www.gnu.org/licenses/>.
 
-useDynLib(parmigene)
-exportPattern("^[^\\.]")
+useDynLib(parmigene, .registration = TRUE, .fixes = "C_")
+export(knnmi, knnmi.cross, knnmi.all, aracne.a, aracne.m, clr, mrnet)

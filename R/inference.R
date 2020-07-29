@@ -1,4 +1,4 @@
-# Copyright 2011 Gabriele Sales <gabriele.sales@unipd.it>
+# Copyright 2011-2020 Gabriele Sales <gabriele.sales@unipd.it>
 #
 #
 # This file is part of parmigene.
@@ -27,7 +27,7 @@ aracne.a <- function(mi, eps=0.05) {
   if (eps <= 0)
     stop("eps must be positive.")
 
-  .aracne(mi, n, eps, 1)
+  aracne_impl(mi, n, eps, 1)
 }
 
 aracne.m <- function(mi, tau=0.15) {
@@ -41,7 +41,7 @@ aracne.m <- function(mi, tau=0.15) {
   if (tau <= 0)
     stop("tau must be positive.")
 
-  .aracne(mi, n, 0, 1-tau)
+  aracne_impl(mi, n, 0, 1-tau)
 }
 
 clr <- function(mi) {
@@ -52,7 +52,7 @@ clr <- function(mi) {
   if (ncol(mi) != n)
     stop("mi must be a square matrix.")
 
-  .clr(mi, n)
+  clr_impl(mi, n)
 }
 
 mrnet <- function(mi) {
@@ -63,5 +63,5 @@ mrnet <- function(mi) {
   if (ncol(mi) != n)
     stop("mi must be a square matrix.")
 
-  .mrnet(mi, n)
+  mrnet_impl(mi, n)
 }
