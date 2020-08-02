@@ -11,3 +11,5 @@ Description: The package provides a parallel estimation of the mutual
         distances and algorithms for the reconstruction of gene
         regulatory networks.
 License: AGPL-3
+URL: https://github.com/sales-lab/parmigene
+BugReports: https://github.com/sales-lab/parmigene/issues
