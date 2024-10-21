@@ -3,9 +3,14 @@ Version: 1.1.1
 Date: 2024-10-21
 Title: Parallel Mutual Information Estimation for Gene Network
        Reconstruction
-Author: Gabriele Sales <gabriele.sales@unipd.it>, Chiara Romualdi
-        <chiara.romualdi@unipd.it>
-Maintainer: Gabriele Sales <gabriele.sales@unipd.it>
+Authors@R: c(person(given = "Gabriele",
+                    family = "Sales",
+                    role = c("aut", "cre"),
+                    email = "gabriele.sales@unipd.it"),
+            person(given = "Chiara",
+                    family = "Romualdi",
+                    role = "aut",
+                    email = "chiara.romualdi@unipd.it"))
 Description: Parallel estimation of the mutual information based on entropy
     estimates from k-nearest neighbors distances and algorithms for the
     reconstruction of gene regulatory networks
