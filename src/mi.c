@@ -1,5 +1,5 @@
 /*
-Copyright 2010-2011 Gabriele Sales <gabriele.sales@unipd.it>
+Copyright 2010-2024 Gabriele Sales <gabriele.sales@unipd.it>
 
 
 This file is part of parmigene.
@@ -26,7 +26,7 @@ License along with parmigene. If not, see <http://www.gnu.org/licenses/>.
 static void init_psi(mi_t* const m) {
   static const coord_t c = 0.5772156649015328606065;
 
-  m->psi = Calloc(m->n, coord_t);
+  m->psi = R_Calloc(m->n, coord_t);
   m->psi[0] = -c;
 
   int i;
@@ -90,20 +90,20 @@ int make_mi(mi_t* const m, const int n, const int k) {
   m->k = k;
   m->n = n;
   init_psi(m);
-  m->sxs  = Calloc(n, coord_t);
-  m->xiis = Calloc(n, int);
-  m->sys  = Calloc(n, coord_t);
-  m->yiis = Calloc(n, int);
+  m->sxs  = R_Calloc(n, coord_t);
+  m->xiis = R_Calloc(n, int);
+  m->sys  = R_Calloc(n, coord_t);
+  m->yiis = R_Calloc(n, int);
 
   return 1;
 }
 
 void destroy_mi(mi_t* const m) {
-  Free(m->sxs);
-  Free(m->xiis);
-  Free(m->sys);
-  Free(m->yiis);
-  Free(m->psi);
+  R_Free(m->sxs);
+  R_Free(m->xiis);
+  R_Free(m->sys);
+  R_Free(m->yiis);
+  R_Free(m->psi);
 }
 
 coord_t mutual_information(mi_t* const m, const coord_t* const xs, const coord_t* const ys) {

@@ -1,5 +1,5 @@
 /*
-Copyright 2010-2011 Gabriele Sales <gabriele.sales@unipd.it>
+Copyright 2010-2024 Gabriele Sales <gabriele.sales@unipd.it>
 
 
 This file is part of parmigene.
@@ -96,7 +96,7 @@ static dist_t wall_distance(const grid_t* const g, const coord_t x, const coord_
 static void append_index(cell_t* const cell, const int idx, const int load_factor) {
   if (cell->fill == cell->size) {
     cell->size = cell->size == 0 ? load_factor : cell->size*2;
-    cell->idxs = Realloc(cell->idxs, cell->size, int);
+    cell->idxs = R_Realloc(cell->idxs, cell->size, int);
   }
   cell->idxs[cell->fill++] = idx;
 }
@@ -112,8 +112,8 @@ static void fill_cells(grid_t* const g, const coord_t* const xs, const coord_t* 
 
   int c;
   coord_t *px, *py;
-  px = g->xs = Calloc(n, coord_t);
-  py = g->ys = Calloc(n, coord_t);
+  px = g->xs = R_Calloc(n, coord_t);
+  py = g->ys = R_Calloc(n, coord_t);
   for (c = 0; c < g->lines*g->cols; c++) {
     cell_t* const cell = &g->cells[c];
     cell->xs = px;
@@ -127,7 +127,7 @@ static void fill_cells(grid_t* const g, const coord_t* const xs, const coord_t* 
 
   for (c = 0; c < g->lines*g->cols; c++) {
     if (g->cells[c].idxs)
-      Free(g->cells[c].idxs);
+      R_Free(g->cells[c].idxs);
   }
 }
 
@@ -140,12 +140,12 @@ static void reset_candidates(candidates_t* const cs) {
 
 static void init_candidates(candidates_t* const cs, const int k) {
   cs->size = k+1;
-  cs->candidates = (candidate_t*)Calloc(cs->size, candidate_t);
+  cs->candidates = (candidate_t*)R_Calloc(cs->size, candidate_t);
   reset_candidates(cs);
 }
 
 static void destroy_candidates(candidates_t* const cs) {
-  Free(cs->candidates);
+  R_Free(cs->candidates);
 }
 
 static void insert_candidate(const int idx, const dist_t dist, candidates_t* const cs) {
@@ -223,16 +223,16 @@ void make_grid(grid_t* const g, const coord_t* const xs, const coord_t* const ys
     alpha += 0.01;
   }
 
-  g->cells = Calloc(g->cols*g->lines, cell_t);
+  g->cells = R_Calloc(g->cols*g->lines, cell_t);
   fill_cells(g, xs, ys, n);
   init_candidates(&g->candidates, k);
 }
 
 void destroy_grid(grid_t* const g) {
   destroy_candidates(&g->candidates);
-  Free(g->cells);
-  Free(g->xs);
-  Free(g->ys);
+  R_Free(g->cells);
+  R_Free(g->xs);
+  R_Free(g->ys);
 }
 
 void ordered_points(const grid_t* const g, const coord_t** xs, const coord_t** ys) {

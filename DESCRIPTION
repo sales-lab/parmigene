@@ -1,6 +1,6 @@
 Package: parmigene
-Version: 1.1.0
-Date: 2020-07-28
+Version: 1.1.1
+Date: 2024-10-21
 Title: Parallel Mutual Information Estimation for Gene Network
        Reconstruction
 Author: Gabriele Sales <gabriele.sales@unipd.it>, Chiara Romualdi
